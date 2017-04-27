@@ -14,4 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('pdf', 'PdfController@invoice');
+Route::get('pdf/{id}', 'PdfController@index');

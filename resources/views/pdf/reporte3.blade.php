@@ -10,7 +10,7 @@
     <main>
       <div id="details" class="clearfix">
         <div id="invoice">
-          <h1>Reporte de Listado por componente {{ $invoice }}</h1>
+          <h1>Reporte3 {{ $invoice }}</h1>
           <div class="date">Date of Invoice: {{ $date }}</div>
         </div>
       </div>

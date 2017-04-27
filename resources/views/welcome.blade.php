@@ -17,9 +17,9 @@
     </header>
         <h2>Listado de Reportes Tácticos:</h2>
        <ul>
-        <li><a href="pdf">Reporte de listado de temas por componente</a></li>
-        <li><a href="">Reporte del listado de empleados clasificados por departamento</a></li>
-        <li><a href="">Reporte de temas y componentes</a></li>
+        <li><a href="pdf/1">Reporte de listado de temas por componente</a></li>
+        <li><a href="pdf/2">Reporte del listado de empleados clasificados por departamento</a></li>
+        <li><a href="pdf/3">Reporte de temas y componentes</a></li>
         <li></li>
         <li></li>
         <li></li>
