@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PdfController extends Controller
 {
 
-    public function index($id){
+    public function index($id){ //este metodo solamente selecciona el reporte en base a la URL
         $pdf = \App::make('dompdf.wrapper');//crear un documento pdf
   
     switch ($id) {
@@ -23,7 +23,6 @@ class PdfController extends Controller
                 $view=$this->reporte3();       
         $pdf->loadHTML($view);
         return $pdf->stream('reporte3');
-
         
         default:
          
@@ -44,20 +43,20 @@ class PdfController extends Controller
 
     }
       public function reporte2(){
-       $data = $this->getData();// esto es un ejemplo de que se puede ir a traer a la base de datos
-        $date = date('Y-m-d');//las fechas son importantes
-        $invoice = "2222";//una variable adicional
-        $view =  \View::make('pdf.reporte2', compact('data', 'date', 'invoice'))->render();//renderizar la vista html
+       $data = $this->getData();
+        $date = date('Y-m-d');
+        $invoice = "2222";
+        $view =  \View::make('pdf.reporte2', compact('data', 'date', 'invoice'))->render();
         return $view;  
 
 
         
     }
       public function reporte3(){
-         $data = $this->getData();// esto es un ejemplo de que se puede ir a traer a la base de datos
-        $date = date('Y-m-d');//las fechas son importantes
-        $invoice = "2222";//una variable adicional
-        $view =  \View::make('pdf.reporte3', compact('data', 'date', 'invoice'))->render();//renderizar la vista html
+         $data = $this->getData();
+        $date = date('Y-m-d');
+        $invoice = "2222";
+        $view =  \View::make('pdf.reporte3', compact('data', 'date', 'invoice'))->render();
         return $view;  
 
 
