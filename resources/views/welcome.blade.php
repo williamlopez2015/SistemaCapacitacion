@@ -30,7 +30,7 @@
                       <div class="widget-content">
                         <div class="widget big-stats-container">
                           <div class="widget-content">
-                            <h6 class="bigstats">Reportes Sencillos y Facil de Generar para los diferentes niveles organizacionales</h6>                            
+                            <h6 class="bigstats">Reportes Sencillos y Facil de Generar para los diferentes niveles Organizacionales</h6>                            
                           </div>
                           <!-- /widget-content --> 
                           

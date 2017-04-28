@@ -15,3 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('pdf/{id}', 'PdfController@index');//aqui se llama al controlador pdf 
+
+

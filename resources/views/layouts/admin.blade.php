@@ -135,6 +135,12 @@
 <script language="javascript" type="text/javascript" src="{{asset('plantilla/js/full-calendar/fullcalendar.min.js')}}"></script>
  
 <script src="{{asset('plantilla/js/base.js')}}"></script> 
+ <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
 
 </body>
 </html>
