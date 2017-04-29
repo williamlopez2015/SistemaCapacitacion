@@ -17,3 +17,7 @@ Route::get('/', function () {
 Route::get('pdf/{id}', 'PdfController@index');//aqui se llama al controlador pdf 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

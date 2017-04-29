@@ -5,6 +5,8 @@
 <title>Ministerio de Trabajo y Previsión Social</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link href="{{asset('plantilla/css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('plantilla/css/bootstrap-responsive.min.css')}}" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
@@ -24,6 +26,11 @@
                     class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="{{url('/')}}">Ministerio de Trabajo y Previsión Social </a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
+          <!-- Authentication Links -->
+          @if (Auth::guest())
+            <li><a href="{{ route('login') }}" class="icon-cog"> Ingresar</a></li>
+            <li><a href="{{ route('register') }}" class="icon-cog"> Registrar</a></li>
+          @else
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                             class="icon-cog"></i> Cuenta <b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -32,12 +39,18 @@
             </ul>
           </li>
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-user"></i> Usuario <b class="caret"></b></a>
+                            class="icon-user"></i> {{ Auth::user()->name }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="javascript:;">Profile</a></li>
-              <li><a href="javascript:;">Salir</a></li>
+              <li><a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Salir</a></li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+              </form>
             </ul>
           </li>
+          @endif
         </ul>
       </div>
       <!--/.nav-collapse --> 
@@ -50,28 +63,22 @@
 <div class="subnavbar">
   <div class="subnavbar-inner">
     <div class="container">
-      <ul class="mainnav">
+      <ul class="mainnav"> 
+        @if (Auth::guest())
         <li class="active"><a href="{{url('/')}}"><i class="icon-dashboard"></i><span>Inicio</span> </a> </li>
-        <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-list-alt"></i><span>Estrategico</span> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Reporte 1</a></li>
-            <li><a href="#">Reporte 2</a></li>
-            <li><a href="#">Reporte 2</a></li>
-            <li><a href="#">Reporte 4</a></li>
-            <li><a href="#">Reporte 5</a></li>
-            <li><a href="#">Reporte 6</a></li>
-          </ul>
-        </li>
-        <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-list-alt"></i><span>Tactico</span> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Reporte 1</a></li>
-            <li><a href="#">Reporte 2</a></li>
-            <li><a href="#">Reporte 2</a></li>
-            <li><a href="#">Reporte 4</a></li>
-            <li><a href="#">Reporte 5</a></li>
-            <li><a href="#">Reporte 6</a></li>
-          </ul>
-        </li>
+        @else
+        @if (Auth::user()->type=="estrategico")
+        @include('layouts.navestrategico')
+        @endif
+
+        @if (Auth::user()->type=="tactico")
+        @include('layouts.navtactico')
+        @endif
+
+        @if (Auth::user()->type=="adminsist")
+        @include('layouts.navadminsist')
+        @endif
+        @endif
       </ul>
     </div>
     <!-- /container --> 
@@ -135,12 +142,14 @@
 <script language="javascript" type="text/javascript" src="{{asset('plantilla/js/full-calendar/fullcalendar.min.js')}}"></script>
  
 <script src="{{asset('plantilla/js/base.js')}}"></script> 
- <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+<!-- Scripts -->
+<script>
+  window.Laravel = {!! json_encode([
+        'csrfToken' => csrf_token(),
+  ]) !!};
+</script>
 
 </body>
 </html>
