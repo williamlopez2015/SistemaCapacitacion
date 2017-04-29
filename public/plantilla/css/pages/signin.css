@@ -199,6 +199,11 @@ span.login-checkbox > input[type='checkbox']:checked + label {
 	padding-left: 6px;
 }
 
+.register .login-fields select {
+	width: 322px;
+	padding-left: 6px;
+}
+
 .register h1 {
 	color: #444;
 }
@@ -229,6 +234,7 @@ span.login-checkbox > input[type='checkbox']:checked + label {
 	.login-fields input {
 		width: 160px;
 	}
+
 	
 	.login-social {
 		width: 100%;
@@ -241,6 +247,11 @@ span.login-checkbox > input[type='checkbox']:checked + label {
 	
 	.register .login-fields input {
 		width: 204px;
+		padding-left: 6px;
+	}
+
+	.register .login-fields select {
+		width: 226px;
 		padding-left: 6px;
 	}
 	

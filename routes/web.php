@@ -14,7 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('pdf/{id}', 'PdfController@index');//aqui se llama al controlador pdf 
+
+
+Route::group(['middleware' =>  ['auth','admin']], function () {
+      Route::get('pdf/{id}', 'PdfController@index');//aqui se llama al controlador pdf 
+});
 
 
 

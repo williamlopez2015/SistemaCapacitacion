@@ -29,25 +29,19 @@
           <!-- Authentication Links -->
           @if (Auth::guest())
             <li><a href="{{ route('login') }}" class="icon-cog"> Ingresar</a></li>
-            <li><a href="{{ route('register') }}" class="icon-cog"> Registrar</a></li>
           @else
-          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="icon-cog"></i> Cuenta <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="javascript:;">Configuraciones</a></li>
-              <li><a href="javascript:;">Ayuda</a></li>
-            </ul>
-          </li>
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                             class="icon-user"></i> {{ Auth::user()->name }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:;">Profile</a></li>
+              
               <li><a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Salir</a></li>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
               </form>
+              <li><a href="javascript:;">Configuraciones</a></li>
+              <li><a href="javascript:;">Ayuda</a></li>
             </ul>
           </li>
           @endif

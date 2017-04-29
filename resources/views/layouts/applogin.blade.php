@@ -3,7 +3,7 @@
   
 <head>
     <meta charset="utf-8">
-    <title>Login - Ministerio de Trabajo y Previsión Social</title>
+    <title>Ministerio de Trabajo y Previsión Social</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes"> 
@@ -32,20 +32,13 @@
 				<span class="icon-bar"></span>
 			</a>
 			
-			<a class="brand" href="index.html">
+			<a class="brand" href="{{url('/')}}">
 				Ministerio de Trabajo y Previsión Social				
 			</a>		
 			
 			<div class="nav-collapse">
 				<ul class="nav pull-right">
-					
-					<li class="">						
-						<a href="{{ route('register') }}" class="">
-							No tienes cuenta?
-						</a>
-						
-					</li>
-					
+				
 					<li class="">						
 						<a href="{{url('/')}}" class="">
 							<i class="icon-chevron-left"></i>
